@@ -1,12 +1,12 @@
 /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
 const express = require('express');
 require('./config/db');
-const exercisesRouter = require('./routes/Exercises');
+const router = require('./routes/index');
 
 const app = express();
 app.use(express.json());
 
-app.use('/api', exercisesRouter);
+app.use('/api', router);
 
 // Handle Client Side Errors
 app.use('*', (req, res) => {
